@@ -1,0 +1,32 @@
+library(ggplot2)
+library(lubridate)
+library(Scale)
+library(reshape2)
+library(tm)
+
+library(SnowballC)
+library(wordcloud)
+library(RColorBrewer)
+library(stringr)
+library(syuzhet) 
+library(dplyr ) 
+text <- readLines("C:\\Users\\mariyr1\\Desktop\\Rajesh\\Channel\\Project 8\\Plip Plip Comments - Copy.csv")
+
+
+str(text)
+
+
+text <- readLines("C:\\Users\\mariyr1\\Desktop\\Rajesh\\Channel\\Project 8\\Comments Before Clean Up.txt")
+Sentiment <- get_nrc_sentiment(text)
+
+text <- cbind(text,Sentiment)
+head(Sentiment)
+TotalSentiment <- data.frame(colSums(text[,c(2:11)]))
+names(TotalSentiment) <- "count"
+TotalSentiment <- cbind("sentiment" = rownames(TotalSentiment) ,TotalSentiment )
+rownames(TotalSentiment) <- NULL
+str(TotalSentiment)
+
+
+
+https://www.wordclouds.com/
