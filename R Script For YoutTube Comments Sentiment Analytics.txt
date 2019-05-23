@@ -10,13 +10,13 @@ library(RColorBrewer)
 library(stringr)
 library(syuzhet) 
 library(dplyr ) 
-text <- readLines("C:\\Users\\mariyr1\\Desktop\\Rajesh\\Channel\\Project 8\\Plip Plip Comments - Copy.csv")
+text <- readLines("C:\\Users\\Desktop\\Rajesh\\Channel\\Project 8\\Plip Plip Comments - Copy.csv")
 
 
 str(text)
 
 
-text <- readLines("C:\\Users\\mariyr1\\Desktop\\Rajesh\\Channel\\Project 8\\Comments Before Clean Up.txt")
+text <- readLines("C:\\Users\\Desktop\\Rajesh\\Channel\\Project 8\\Comments Before Clean Up.txt")
 Sentiment <- get_nrc_sentiment(text)
 
 text <- cbind(text,Sentiment)
@@ -26,7 +26,3 @@ names(TotalSentiment) <- "count"
 TotalSentiment <- cbind("sentiment" = rownames(TotalSentiment) ,TotalSentiment )
 rownames(TotalSentiment) <- NULL
 str(TotalSentiment)
-
-
-
-https://www.wordclouds.com/
